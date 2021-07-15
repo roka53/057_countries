@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html id= "bGround">
+  <head>
+    <link rel="shortcut icon" href="#"> <!--behebt Fehlermeldung: GEThttp://localhost/favicon.ico in der Java Konsole -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/057_countries.css" rel="stylesheet" type="text/css">
+    <title>Country game</title>
+  </head>
+  <body class="noselect">
+
+    <div id="container1" class="container1">
+      <h2 id="titel" class="titel">Country game</h2>
+      <h4 id="titel_text" class="titel_text"> Choose a country </h4>
+        <p id="box1" class="box1" onclick="chooseCountry('1');"> Holland </p>
+        <p id="box2" class="box2" onclick="chooseCountry('2');"> Italy </p>
+        <p id="box3" class="box3" onclick="chooseCountry('3');"> Mexico </p>
+        <p id="box4" class="box4" onclick="chooseCountry('4');"> Switzerland </p>
+        <p id="box5" class="box5" onclick="chooseCountry('5');"> Brazil </p>
+        <p id="box6" class="box6" onclick="chooseCountry('6');"> India </p>
+      <img class="world_map" id="world_map" src="media/057_map_world.png" alt="map_world">
+      <p><a href="057_nutzungsrechte.html" target="_blank">Nutzungsrechte</a></p>
+    </div>
+
+    <div id="container2" class="container2">
+      <h2 id="country" class="country"> Country </h2>
+      <h4 id="map_text" class="map_text"> container 2 </h4>
+
+      <img id="holland_map" class="holland_map" onclick="checkMap('1');" src="media/057_map_world.png" alt="map_world">
+      <img id="italy_map" class="italy_map" onclick="checkMap('2');" src="media/057_map_italy.png" alt="map_italy">
+
+
+
+
+      <!-- <img class="mexico_map" id="mexico_map" onclick="checkMap('3');" src="media/057_weltkarte.png" alt="Weltkarte">
+      -->
+    </div>
+
+    <div id="container3" class="container3">
+      <h2 id="flag" class="flag"> Flag </h2>
+      <h4 id="flag_text" class="flag_text"> container 3 </h4>
+
+      <img id="swiss_flag" class="swiss_flag" onclick="checkFlag('1');" src="media/057_flag_switzerland.svg.webp" >
+      <img id="mexico_flag" class="mexico_flag" onclick="checkFlag('2');" src="media/057_flag_mexico.svg.webp" >
+      <img id="italy_flag" class="italy_flag" onclick="checkFlag('3');" src="media/057_flag_italy.svg.webp" >
+      <img id="holland_flag" class="holland_flag" onclick="checkFlag('4');" src="media/057_flag_netherlands.svg.webp" >
+
+     <img id="italy_map" class="italy_map" src="media/057_map_italy.png" alt="map_italy">
+
+    </div>
+
+    <div id="container4" class="container4">
+      <h2 id="food" class="food"> Food </h2>
+      <h4 id="food_text" class="food_text"> container 4 </h4>
+
+      <img id="italy_food" class="italy_food" onclick="checkFood('1');" src="media/057_food_italy.png" >
+      <img id="holland_food" class="holland_food" onclick="checkFood('2');" src="media/057_food_holland.png" >
+      <img id="mexico_food" class="mexico_food" onclick="checkFood('3');" src="media/057_food_mexico.png" >
+      <img id="brazil_food" class="brazil_food" onclick="checkFood('4');" src="media/057_food_brazil.png" >
+
+      <img id="italy_map" class="italy_map" src="media/057_map_italy.png" alt="map_italy">
+
+    </div>
+
+    <div id="container5" class="container5">
+      <h2 id="special" class="special"> Special </h2>
+      <h4 id="special_text" class="special_text"> container 5 </h4>
+
+      <img id="italy_special" class="italy_special" onclick="checkSpecial('1');" src="media/057_special_italy.png" >
+      <img id="holland_special" class="holland_special" onclick="checkSpecial('2');" src="media/057_special_holland.png" >
+      <img id="mexico_special" class="mexico_special" onclick="checkSpecial('3');" src="media/057_special_switzerland.png" >
+      <img id="brazil_special" class="brazil_special" onclick="checkSpecial('4');" src="media/057_special_brazil.png" >
+
+      <img id="italy_map" class="italy_map" src="media/057_map_italy.png" alt="map_italy">
+
+    </div>
+
+    <div id="container6" class="container6">
+     <h2 id="finish" class="finish"> Finish </h2>
+     <h4 id="finish_text" class="finish_text"> container 6 </h4>
+
+
+      <img id="italy_special" class="italy_special" src="media/057_special_italy.png" >
+      <img id="holland_special" class="holland_special" src="media/X057_special_holland.png" alt="anzeigen">
+      <img id="mexico_special" class="mexico_special" src="media/057_special_switzerland.png" >
+      <img id="brazil_special" class="brazil_special" src="media/057_special_brazil.png" >
+      <img id="italy_map" class="italy_map" src="media/057_map_italy.png" alt="map_italy">
+
+      <p>Next country</p>
+    </div>
+
+
+    <script>
+    var preload = new Array(); // Bilder vorladen
+      preload[0] = "media/057_map_world.png";
+      //preload[1] = "media/057_map_brazil.png";
+      //preload[2] = "media/057_map_holland.png";
+      //preload[3] = "media/057_map_india.png";
+      preload[4] = "media/057_map_italy.png";
+      //preload[5] = "media/057_map_mexico.png";
+      //preload[6] = "media/057_map_switzerland.png";
+
+      preload[7] = "media/057_food_brazil.png";
+      preload[8] = "media/057_food_holland.png";
+      preload[9] = "media/057_food_india.png";
+      preload[10] = "media/057_food_italy.png";
+      preload[11] = "media/057_food_mexico.png";
+      preload[12] = "media/057_food_switzerland.png";
+
+      preload[13] = "media/057_flag_brazil.svg.png";
+      preload[14] = "media/057_flag_netherlands.svg.png";
+      preload[15] = "media/057_flag_india.svg.png";
+      preload[16] = "media/057_flag_italy.svg.png";
+      preload[17] = "media/057_flag_mexico.svg.png";
+      preload[18] = "media/057_flag_switzerland.svg.png";
+
+      preload[19] = "media/057_special_brazil.png";
+      preload[20] = "media/057_special_holland.png";
+      preload[21] = "media/057_special_india.png";
+      preload[22] = "media/057_special_italy.png";
+      preload[23] = "media/057_special_mexico.png";
+      preload[24] = "media/057_special_switzerland.png";
+
+
+      var picture = new Array();
+
+      function vorladen() {
+        let i;
+        for (i = 0; i < preload.length; i++) {
+          picture[i] = new Image();
+          picture[i].src = preload[i];
+          }
+        }
+    vorladen();
+
+
+
+
+
+
+
+      var country;
+        var map_text = "Click the map from ";
+
+        var country1 = "Holland";
+        var country2 = "Italy";
+        var country3 = "Mexico";
+        var country4 = "Switzerland";
+        var country5 = "Brazil";
+        var country6 = "India";
+
+      function chooseCountry(key) {
+        // Country1 bis 6 der Variablen Country zuteilen
+        // sowie Text fuer Variable country_text
+        if (key == 1) {
+          country = country1;
+          map_text = map_text + country1;
+          }
+          if (key == 2) {
+            country = country2;
+            map_text = map_text + country2;
+          }
+          if (key == 3) {
+            country = country3;
+            map_text = map_text + country3;
+          }
+          if (key == 4) {
+            country = country4;
+            map_text = map_text + country4;
+          }
+          if (key == 5) {
+            country = country5;
+            map_text = map_text + country5;
+          }
+          if (key == 6) {
+            country = country6;
+            map_text = map_text + country6;
+          }
+        console.log ("Das Land heisst: " + country);
+        // console.log(country_text);
+
+        document.getElementById("box"+key).style.visibility = "hidden";
+        document.getElementById("container1").style.visibility = "hidden";
+        document.getElementById("container2").style.visibility = "visible";
+        document.getElementById("country").innerHTML = country;
+        document.getElementById("map_text").innerHTML = map_text;
+
+      }
+
+      function checkMap(mapKey) {
+
+        if (mapKey == 1) {
+          console.log ("Es ist falsch:");
+        //  country_text = country_text + country1;
+          }
+          if (mapKey == 2) {
+            console.log ("Es ist richtig:");
+            flag_text = "Choose flag from " + country2;
+
+            document.getElementById("container2").style.visibility = "hidden";
+            document.getElementById("container3").style.visibility = "visible";
+            document.getElementById("flag_text").innerHTML = flag_text;
+
+          }
+      }
+
+      function checkFlag(flagKey) {
+
+        if (flagKey == 1) {
+          console.log ("1 ist falsch:");
+          alert("Wrong flag!");
+        //  country_text = country_text + country1;
+          }
+          if (flagKey == 2) {
+            console.log ("2 ist falsch:");
+            alert("Wrong flag!");
+
+            }
+          if (flagKey == 4) {
+            console.log ("4 ist falsch:");
+            alert("Wrong flag!");
+
+            }
+          if (flagKey == 3) {
+            console.log ("3 ist richtig:");
+            food_text = "Choose food from " + country2;
+
+
+            document.getElementById("container2").style.visibility = "hidden";
+            document.getElementById("container3").style.visibility = "hidden";
+            document.getElementById("container4").style.visibility = "visible";
+
+            document.getElementById("food_text").innerHTML = food_text;
+            }
+
+      }
+
+      function checkFood(foodKey) {
+
+        if (foodKey == 2) {
+          console.log ("2 ist falsch:");
+          alert("Wrong food!");
+
+          }
+          if (foodKey == 3) {
+            console.log ("3 ist falsch:");
+            alert("Wrong food!");
+
+            }
+          if (foodKey == 4) {
+            console.log ("4 ist falsch:");
+            alert("Wrong food!");
+
+            }
+          if (foodKey == 1) {
+            console.log ("1 ist richtig:");
+            special_text = "Choose special from " + country2;
+
+            document.getElementById("container2").style.visibility = "hidden";
+            document.getElementById("container3").style.visibility = "hidden";
+            document.getElementById("container4").style.visibility = "hidden";
+            document.getElementById("container5").style.visibility = "visible";
+
+            document.getElementById("special_text").innerHTML = special_text;
+            }
+
+      }
+
+      function checkSpecial(specialKey) {
+
+        if (specialKey == 2) {
+          console.log ("2 ist falsch:");
+          alert("Wrong food!");
+
+          }
+          if (specialKey == 3) {
+            console.log ("3 ist falsch:");
+            alert("Wrong food!");
+
+            }
+          if (specialKey == 4) {
+            console.log ("4 ist falsch:");
+            alert("Wrong food!");
+
+            }
+          if (specialKey == 1) {
+            console.log ("1 ist richtig:");
+            finish = "Finish ";
+            finish_text = "Good job! ";
+
+            document.getElementById("container2").style.visibility = "hidden";
+            document.getElementById("container3").style.visibility = "hidden";
+            document.getElementById("container4").style.visibility = "hidden";
+            document.getElementById("container5").style.visibility = "hidden";
+            document.getElementById("container6").style.visibility = "visible";
+
+            document.getElementById("finish_text").innerHTML = finish_text;
+            }
+
+      }
+    </script>
+
+  </body>
+</html>
