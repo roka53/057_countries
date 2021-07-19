@@ -26,9 +26,12 @@
       <h2 id="country" class="country"> Country </h2>
       <h4 id="map_text" class="map_text"> container 2 </h4>
 
+      <!--
       <img id="holland_map" class="holland_map" onclick="checkMap('1');" src="media/057_map_world.png" alt="map_world">
       <img id="italy_map" class="italy_map" onclick="checkMap('2');" src="media/057_map_italy.png" alt="map_italy">
-
+      -->
+      <img id="map1" class="map1_6" onclick="checkMap('1');" src="media/057_map_world.png" alt="map_world">
+      <img id="map2" class="map1_6" onclick="checkMap('2');" src="media/057_map_italy.png" alt="map_italy">
 
 
 
@@ -81,9 +84,9 @@
 
 
       <img id="italy_special" class="italy_special" src="media/057_special_italy.png" >
-      <img id="holland_special" class="holland_special" src="media/X057_special_holland.png" alt="anzeigen">
-      <img id="mexico_special" class="mexico_special" src="media/057_special_switzerland.png" >
-      <img id="brazil_special" class="brazil_special" src="media/057_special_brazil.png" >
+      <img id="holland_special" class="" src="" alt="anzeigen">
+      <img id="italy_flag" class="italy_flag" src="media/057_flag_italy.svg.webp" >
+      <img id="italy_food" class="italy_food" src="media/057_food_italy.png" >
       <img id="italy_map" class="italy_map" src="media/057_map_italy.png" alt="map_italy">
 
       <p>Next country</p>
@@ -91,53 +94,47 @@
 
 
     <script>
-    var preload = new Array(); // Bilder vorladen
-      preload[0] = "media/057_map_world.png";
-      //preload[1] = "media/057_map_brazil.png";
-      //preload[2] = "media/057_map_holland.png";
-      //preload[3] = "media/057_map_india.png";
-      preload[4] = "media/057_map_italy.png";
-      //preload[5] = "media/057_map_mexico.png";
-      //preload[6] = "media/057_map_switzerland.png";
 
-      preload[7] = "media/057_food_brazil.png";
-      preload[8] = "media/057_food_holland.png";
-      preload[9] = "media/057_food_india.png";
-      preload[10] = "media/057_food_italy.png";
-      preload[11] = "media/057_food_mexico.png";
-      preload[12] = "media/057_food_switzerland.png";
+      var preload = new Array(); // Bilder vorladen
+        preload[0] = "media/057_map_world.png";
+        preload[1] = "media/057_map_holland.png";
+        preload[2] = "media/057_map_italy.png";
+        preload[3] = "media/057_map_mexico.png";
+        preload[4] = "media/057_map_switzerland.png";
+        preload[5] = "media/057_map_brazil.png";
+        preload[6] = "media/057_map_india.png";
 
-      preload[13] = "media/057_flag_brazil.svg.png";
-      preload[14] = "media/057_flag_netherlands.svg.png";
-      preload[15] = "media/057_flag_india.svg.png";
-      preload[16] = "media/057_flag_italy.svg.png";
-      preload[17] = "media/057_flag_mexico.svg.png";
-      preload[18] = "media/057_flag_switzerland.svg.png";
+        preload[7] = "media/057_flag_netherlands.svg.webp";
+        preload[8] = "media/057_flag_italy.svg.webp";
+        preload[9] = "media/057_flag_mexico.svg.webp";
+        preload[10] = "media/057_flag_switzerland.svg.webp";
+        preload[11] = "media/057_flag_brazil.svg.webp";
+        preload[12] = "media/057_flag_india.svg.png";
 
-      preload[19] = "media/057_special_brazil.png";
-      preload[20] = "media/057_special_holland.png";
-      preload[21] = "media/057_special_india.png";
-      preload[22] = "media/057_special_italy.png";
-      preload[23] = "media/057_special_mexico.png";
-      preload[24] = "media/057_special_switzerland.png";
+        preload[13] = "media/057_food_holland.png";
+        preload[14] = "media/057_food_italy.png";
+        preload[15] = "media/057_food_mexico.png";
+        preload[16] = "media/057_food_switzerland.png";
+        preload[17] = "media/057_food_brazil.png";
+        preload[18] = "media/057_food_india.png";
 
+        preload[19] = "media/057_special_holland.png";
+        preload[20] = "media/057_special_italy.png";
+        preload[21] = "media/057_special_mexico.png";
+        preload[22] = "media/057_special_switzerland.png";
+        preload[23] = "media/057_special_brazil.png";
+        preload[24] = "media/057_special_india.png";
 
       var picture = new Array();
 
-      function vorladen() {
-        let i;
-        for (i = 0; i < preload.length; i++) {
-          picture[i] = new Image();
-          picture[i].src = preload[i];
+        function vorladen() {
+          let i;
+          for (i = 0; i < preload.length; i++) {
+            picture[i] = new Image();
+            picture[i].src = preload[i];
+            }
           }
-        }
-    vorladen();
-
-
-
-
-
-
+      vorladen();
 
       var country;
         var map_text = "Click the map from ";
@@ -149,35 +146,112 @@
         var country5 = "Brazil";
         var country6 = "India";
 
+        var zufZahl1; // 1 - 2
+        var zufZahl2; // 1 - 6
+        var map1;
+        var map2;
+        var map = "false";
+
       function chooseCountry(key) {
-        // Country1 bis 6 der Variablen Country zuteilen
-        // sowie Text fuer Variable country_text
-        if (key == 1) {
-          country = country1;
-          map_text = map_text + country1;
+        zufZahl1 = Math.floor( Math.random() * 2 + 1 );
+        zufZahl2 = Math.floor( Math.random() * 6 + 1 );
+        // console.log(zufZahl1 + " (1 - 2)");
+        // console.log(zufZahl2 + " (1 - 6)");
+
+          if (key == 1) {
+            country = country1;
+            map_text = map_text + country1;
+            if (zufZahl2 == 1) {
+              zufZahl2 = zufZahl2 + zufZahl1;
+            }
+            console.log(map );
+            if (zufZahl1 == 1) {
+              map = "true";
+              var map1 = preload[key];
+              var map2 = preload[zufZahl2];
+
+            } else {
+              map = "true";
+              var map1 = preload[zufZahl2];
+              var map2 = preload[key];
+
+            }
           }
           if (key == 2) {
             country = country2;
             map_text = map_text + country2;
+            map = "true";
+            if (zufZahl2 == 2) {
+              zufZahl2 = zufZahl2 + zufZahl1;
+            }
+            if (zufZahl1 == 1) {
+              var map1 = preload[key];
+              var map2 = preload[zufZahl2];
+            } else {
+              var map1 = preload[zufZahl2];
+              var map2 = preload[key];
+            }
           }
           if (key == 3) {
             country = country3;
             map_text = map_text + country3;
+            map = "true";
+            if (zufZahl2 == 3) {
+              zufZahl2 = zufZahl2 + zufZahl1;
+            }
+            if (zufZahl1 == 1) {
+              var map1 = preload[key];
+              var map2 = preload[zufZahl2];
+            } else {
+              var map1 = preload[zufZahl2];
+              var map2 = preload[key];
+            }
           }
           if (key == 4) {
             country = country4;
             map_text = map_text + country4;
+            map = "true";
+            if (zufZahl2 == 4) {
+              zufZahl2 = zufZahl2 + zufZahl1;
+            }
+            if (zufZahl1 == 1) {
+              var map1 = preload[key];
+              var map2 = preload[zufZahl2];
+            } else {
+              var map1 = preload[zufZahl2];
+              var map2 = preload[key];
+            }
           }
           if (key == 5) {
             country = country5;
             map_text = map_text + country5;
+            map = "true";
+            if (zufZahl2 == 5) {
+              zufZahl2 = zufZahl2 - zufZahl1;
+            }
+            if (zufZahl1 == 1) {
+              var map1 = preload[key];
+              var map2 = preload[zufZahl2];
+            } else {
+              var map1 = preload[zufZahl2];
+              var map2 = preload[key];
+            }
           }
           if (key == 6) {
             country = country6;
             map_text = map_text + country6;
+            map = "true";
+            if (zufZahl2 == 6) {
+              zufZahl2 = zufZahl2 - zufZahl1;
+            }
+            if (zufZahl1 == 1) {
+              var map1 = preload[key];
+              var map2 = preload[zufZahl2];
+            } else {
+              var map1 = preload[zufZahl2];
+              var map2 = preload[key];
+            }
           }
-        console.log ("Das Land heisst: " + country);
-        // console.log(country_text);
 
         document.getElementById("box"+key).style.visibility = "hidden";
         document.getElementById("container1").style.visibility = "hidden";
@@ -185,8 +259,35 @@
         document.getElementById("country").innerHTML = country;
         document.getElementById("map_text").innerHTML = map_text;
 
+        document.getElementById("map1").src = map1;
+        document.getElementById("map2").src = map2;
+
+        //console.log(img1);
+
       }
 
+      function checkMap(mapKey) {
+
+        if (mapKey == 1 && map == "false" ||
+            mapKey == 2 && map == "false") {
+           console.log ("Es ist falsch 1:");
+          }
+
+          else {
+            console.log(mapKey + " mapKey | map " + map);
+        flag_text = "Choose flag from " + country2;
+        document.getElementById("container2").style.visibility = "hidden";
+        document.getElementById("container3").style.visibility = "visible";
+        document.getElementById("flag_text").innerHTML = flag_text;
+        //console.log ("Es ist falsch mmmm");
+      //  country_text = country_text + country1;
+
+          }
+
+
+      }
+
+      /* original
       function checkMap(mapKey) {
 
         if (mapKey == 1) {
@@ -203,7 +304,7 @@
 
           }
       }
-
+*/
       function checkFlag(flagKey) {
 
         if (flagKey == 1) {
@@ -298,6 +399,7 @@
             }
 
       }
+
     </script>
 
   </body>
