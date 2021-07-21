@@ -25,43 +25,30 @@
     <div id="container2" class="container2">
       <h2 id="country" class="country"> Country </h2>
       <h4 id="map_text" class="map_text"> container 2 </h4>
-
-      <!--
-      <img id="holland_map" class="holland_map" onclick="checkMap('1');" src="media/057_map_world.png" alt="map_world">
-      <img id="italy_map" class="italy_map" onclick="checkMap('2');" src="media/057_map_italy.png" alt="map_italy">
-      -->
       <img id="map1" class="map1_6" onclick="checkMap('1');" src="media/057_map_world.png" alt="map_world">
       <img id="map2" class="map1_6" onclick="checkMap('2');" src="media/057_map_italy.png" alt="map_italy">
-
-
-
-      <!-- <img class="mexico_map" id="mexico_map" onclick="checkMap('3');" src="media/057_weltkarte.png" alt="Weltkarte">
-      -->
     </div>
 
     <div id="container3" class="container3">
       <h2 id="flag" class="flag"> Flag </h2>
       <h4 id="flag_text" class="flag_text"> container 3 </h4>
-
-      <img id="swiss_flag" class="swiss_flag" onclick="checkFlag('1');" src="media/057_flag_switzerland.svg.webp" >
-      <img id="mexico_flag" class="mexico_flag" onclick="checkFlag('2');" src="media/057_flag_mexico.svg.webp" >
-      <img id="italy_flag" class="italy_flag" onclick="checkFlag('3');" src="media/057_flag_italy.svg.webp" >
-      <img id="holland_flag" class="holland_flag" onclick="checkFlag('4');" src="media/057_flag_netherlands.svg.webp" >
-
-     <img id="italy_map" class="italy_map" src="media/057_map_italy.png" alt="map_italy">
-
+      <img id="flag1" class="flag1" onclick="checkFlag('1');" src="media/057_flag_switzerland.svg.webp" alt="flag1">
+      <img id="flag2" class="flag2" onclick="checkFlag('2');" src="media/057_flag_mexico.svg.webp" alt="flag2">
+      <img id="flag3" class="flag3" onclick="checkFlag('3');" src="media/057_flag_italy.svg.webp" alt="flag3">
+      <img id="flag4" class="flag4" onclick="checkFlag('4');" src="media/057_flag_netherlands.svg.webp" alt="flag4">
+      <img id="selectedMap3" class="selectedMap" src="media/057_map_italy.png" alt="selectedMap">
     </div>
 
     <div id="container4" class="container4">
       <h2 id="food" class="food"> Food </h2>
       <h4 id="food_text" class="food_text"> container 4 </h4>
 
-      <img id="italy_food" class="italy_food" onclick="checkFood('1');" src="media/057_food_italy.png" >
-      <img id="holland_food" class="holland_food" onclick="checkFood('2');" src="media/057_food_holland.png" >
-      <img id="mexico_food" class="mexico_food" onclick="checkFood('3');" src="media/057_food_mexico.png" >
-      <img id="brazil_food" class="brazil_food" onclick="checkFood('4');" src="media/057_food_brazil.png" >
+      <img id="food1" class="food1" onclick="checkFood('1');" src="media/057_food_italy.png" alt="food1">
+      <img id="food2" class="food2" onclick="checkFood('2');" src="media/057_food_holland.png" alt="food2">
+      <img id="food3" class="food3" onclick="checkFood('3');" src="media/057_food_mexico.png" alt="food3">
+      <img id="food4" class="food4" onclick="checkFood('4');" src="media/057_food_brazil.png" alt="food4">
 
-      <img id="italy_map" class="italy_map" src="media/057_map_italy.png" alt="map_italy">
+      <img id="selectedMap4" class="selectedMap" src="media/057_map_italy.png" alt="selectedMap">
 
     </div>
 
@@ -69,12 +56,12 @@
       <h2 id="special" class="special"> Special </h2>
       <h4 id="special_text" class="special_text"> container 5 </h4>
 
-      <img id="italy_special" class="italy_special" onclick="checkSpecial('1');" src="media/057_special_italy.png" >
-      <img id="holland_special" class="holland_special" onclick="checkSpecial('2');" src="media/057_special_holland.png" >
-      <img id="mexico_special" class="mexico_special" onclick="checkSpecial('3');" src="media/057_special_switzerland.png" >
-      <img id="brazil_special" class="brazil_special" onclick="checkSpecial('4');" src="media/057_special_brazil.png" >
+      <img id="special1" class="special1" onclick="checkSpecial('1');" src="media/057_special_italy.png" alt="special1">
+      <img id="special2" class="special2" onclick="checkSpecial('2');" src="media/057_special_holland.png" alt="special2">
+      <img id="special3" class="special3" onclick="checkSpecial('3');" src="media/057_special_switzerland.png" alt="special3">
+      <img id="special4" class="special4" onclick="checkSpecial('4');" src="media/057_special_brazil.png" alt="special4">
 
-      <img id="italy_map" class="italy_map" src="media/057_map_italy.png" alt="map_italy">
+      <img id="selectedMap5" class="selectedMap" src="media/057_map_italy.png" alt="selectedMap">
 
     </div>
 
@@ -87,7 +74,7 @@
       <img id="holland_special" class="" src="" alt="anzeigen">
       <img id="italy_flag" class="italy_flag" src="media/057_flag_italy.svg.webp" >
       <img id="italy_food" class="italy_food" src="media/057_food_italy.png" >
-      <img id="italy_map" class="italy_map" src="media/057_map_italy.png" alt="map_italy">
+      <img id="selectedMap6" class="selectedMap" src="media/057_map_italy.png" alt="selectedMap">
 
       <p>Next country</p>
     </div>
@@ -145,226 +132,349 @@
         var country4 = "Switzerland";
         var country5 = "Brazil";
         var country6 = "India";
+        var countryKey;
 
         var zufZahl1; // 1 - 2
         var zufZahl2; // 1 - 6
         var map1;
         var map2;
         var map = "false";
+        var selectedMap;
+        var selectedFlag;
+        var selectedFood;
+        var selectedSpecial;
+        var flag1,flag2, flag3, flag4;
+        var flagOk;
+        var food1, food2, food3, food4;
+        var foodOk;
+        var special1, special2, special3,special4;
+        var specialOk;
 
-      function chooseCountry(key) {
+
+      function chooseCountry(key) { // container1
         zufZahl1 = Math.floor( Math.random() * 2 + 1 );
         zufZahl2 = Math.floor( Math.random() * 6 + 1 );
         // console.log(zufZahl1 + " (1 - 2)");
         // console.log(zufZahl2 + " (1 - 6)");
 
           if (key == 1) {
+            countryKey = parseInt(key);
             country = country1;
             map_text = map_text + country1;
             if (zufZahl2 == 1) {
               zufZahl2 = zufZahl2 + zufZahl1;
             }
-            console.log(map );
             if (zufZahl1 == 1) {
-              map = "true";
+              map = "true1";
               var map1 = preload[key];
               var map2 = preload[zufZahl2];
-
-            } else {
-              map = "true";
+            }
+            else {
+              map = "true2";
               var map1 = preload[zufZahl2];
               var map2 = preload[key];
-
             }
           }
           if (key == 2) {
+            countryKey = parseInt(key);
             country = country2;
             map_text = map_text + country2;
-            map = "true";
             if (zufZahl2 == 2) {
               zufZahl2 = zufZahl2 + zufZahl1;
             }
             if (zufZahl1 == 1) {
+              map = "true1";
               var map1 = preload[key];
               var map2 = preload[zufZahl2];
             } else {
+              map = "true2";
               var map1 = preload[zufZahl2];
               var map2 = preload[key];
             }
           }
           if (key == 3) {
+            countryKey = parseInt(key);
             country = country3;
             map_text = map_text + country3;
-            map = "true";
             if (zufZahl2 == 3) {
               zufZahl2 = zufZahl2 + zufZahl1;
             }
             if (zufZahl1 == 1) {
+              map = "true1";
               var map1 = preload[key];
               var map2 = preload[zufZahl2];
             } else {
+              map = "true2";
               var map1 = preload[zufZahl2];
               var map2 = preload[key];
             }
           }
           if (key == 4) {
+            countryKey = parseInt(key);
             country = country4;
             map_text = map_text + country4;
-            map = "true";
             if (zufZahl2 == 4) {
               zufZahl2 = zufZahl2 + zufZahl1;
             }
             if (zufZahl1 == 1) {
+              map = "true1";
               var map1 = preload[key];
               var map2 = preload[zufZahl2];
             } else {
+              map = "true2";
               var map1 = preload[zufZahl2];
               var map2 = preload[key];
             }
           }
           if (key == 5) {
+            countryKey = parseInt(key);
             country = country5;
             map_text = map_text + country5;
-            map = "true";
             if (zufZahl2 == 5) {
               zufZahl2 = zufZahl2 - zufZahl1;
             }
             if (zufZahl1 == 1) {
+              map = "true1";
               var map1 = preload[key];
               var map2 = preload[zufZahl2];
             } else {
+              map = "true2";
               var map1 = preload[zufZahl2];
               var map2 = preload[key];
             }
           }
           if (key == 6) {
+            countryKey = parseInt(key);
             country = country6;
             map_text = map_text + country6;
-            map = "true";
             if (zufZahl2 == 6) {
               zufZahl2 = zufZahl2 - zufZahl1;
             }
             if (zufZahl1 == 1) {
+              map = "true1";
               var map1 = preload[key];
               var map2 = preload[zufZahl2];
             } else {
+              map = "true2";
               var map1 = preload[zufZahl2];
               var map2 = preload[key];
             }
           }
+
+
+        selectedMap =  preload[parseInt(key)];
+        selectedFlag = preload[parseInt(key)+6];
+        selectedFood = preload[parseInt(key)+12];
+        selectedSpecial = preload[parseInt(key)+18];
 
         document.getElementById("box"+key).style.visibility = "hidden";
         document.getElementById("container1").style.visibility = "hidden";
         document.getElementById("container2").style.visibility = "visible";
         document.getElementById("country").innerHTML = country;
         document.getElementById("map_text").innerHTML = map_text;
-
         document.getElementById("map1").src = map1;
         document.getElementById("map2").src = map2;
-
-        //console.log(img1);
-
       }
 
-      function checkMap(mapKey) {
-
-        if (mapKey == 1 && map == "false" ||
-            mapKey == 2 && map == "false") {
-           console.log ("Es ist falsch 1:");
+      function checkMap(mapKey) { // container2
+        if (mapKey == 1 && map == "true1" ) {
+          chooseFlag();
           }
-
+          else if (mapKey == 2 && map == "true2") {
+            chooseFlag();
+          }
           else {
-            console.log(mapKey + " mapKey | map " + map);
-        flag_text = "Choose flag from " + country2;
-        document.getElementById("container2").style.visibility = "hidden";
-        document.getElementById("container3").style.visibility = "visible";
-        document.getElementById("flag_text").innerHTML = flag_text;
-        //console.log ("Es ist falsch mmmm");
-      //  country_text = country_text + country1;
-
+            console.log ("Es ist die falsch Map");
           }
 
+          function chooseFlag()  {
+            // flag auswählen
+            // 4 Zufallszahlen aus 6 in Array schreiben
+            var enthalten = {};
+            var zufall = [];
+            var anzahl = 4;
+            while(anzahl){
+              var rnd = Math.floor((Math.random() * 6) + 1);
+              if(!enthalten[rnd]){
+                // nicht enthalten
+                enthalten[rnd] = true;
+                anzahl--;
+                zufall.push(rnd);
+              }
+            }
 
-      }
+            // check ob selectedFlag (countryKey) vorhanden ist
+            // sonst an flag1 zuteilen
+            if (zufall[0] == countryKey || zufall[1] == countryKey||
+                zufall[2] == countryKey || zufall[3] == countryKey) {
+            }
+            else {
+              zufall[0] = countryKey;
+            //  console.log(countryKey + " zugeteilt");
+            }
+            // console.log(zufall);
+            // console.log(zufall.indexOf(countryKey));
 
-      /* original
-      function checkMap(mapKey) {
+            flag1 = preload[zufall[0]+6]
+            flag2 = preload[zufall[1]+6]
+            flag3 = preload[zufall[2]+6]
+            flag4 = preload[zufall[3]+6]
+            flagOk = zufall.indexOf(countryKey);
+            // console.log("flagOk ist pos. :" + flagOk);
 
-        if (mapKey == 1) {
-          console.log ("Es ist falsch:");
-        //  country_text = country_text + country1;
-          }
-          if (mapKey == 2) {
-            console.log ("Es ist richtig:");
-            flag_text = "Choose flag from " + country2;
-
+            flag_text = "Choose flag from " + country;
             document.getElementById("container2").style.visibility = "hidden";
             document.getElementById("container3").style.visibility = "visible";
+            document.getElementById('selectedMap3').src = selectedMap;
+            document.getElementById('flag1').src = flag1;
+            document.getElementById('flag2').src = flag2;
+            document.getElementById('flag3').src = flag3;
+            document.getElementById('flag4').src = flag4;
+
             document.getElementById("flag_text").innerHTML = flag_text;
 
+            map = "false";
+            return;
+            console.log(zufall);
           }
       }
-*/
-      function checkFlag(flagKey) {
 
-        if (flagKey == 1) {
-          console.log ("1 ist falsch:");
-          alert("Wrong flag!");
-        //  country_text = country_text + country1;
+      function checkFlag(flagKey) { // container3
+        // selectedFood und 3 zufällige Food anzeigen
+
+        if (flagKey == 1 && flagOk == "0") {
+          chooseFood();
           }
-          if (flagKey == 2) {
-            console.log ("2 ist falsch:");
-            alert("Wrong flag!");
-
+          else if (flagKey == 2 && flagOk == "1") {
+            chooseFood();
             }
-          if (flagKey == 4) {
-            console.log ("4 ist falsch:");
-            alert("Wrong flag!");
-
+          else if (flagKey == 3 && flagOk == "2") {
+            chooseFood();
             }
-          if (flagKey == 3) {
-            console.log ("3 ist richtig:");
-            food_text = "Choose food from " + country2;
-
-
-            document.getElementById("container2").style.visibility = "hidden";
-            document.getElementById("container3").style.visibility = "hidden";
-            document.getElementById("container4").style.visibility = "visible";
-
-            document.getElementById("food_text").innerHTML = food_text;
+          else if (flagKey == 4 && flagOk == "3") {
+            chooseFood();
+            }
+            else {
+              alert("Wrong flag !");
             }
 
+            function chooseFood()  {
+              // flag auswählen
+              // 4 Zufallszahlen aus 6 in Array schreiben
+              var enthalten = {};
+              var zufall = [];
+              var anzahl = 4;
+              while(anzahl){
+                var rnd = Math.floor((Math.random() * 6) + 1);
+                if(!enthalten[rnd]){
+                  // nicht enthalten
+                  enthalten[rnd] = true;
+                  anzahl--;
+                  zufall.push(rnd);
+                }
+              }
+
+              // check ob selectedFlag (countryKey) vorhanden ist
+              // sonst an flag1 zuteilen
+              if (zufall[0] == countryKey || zufall[1] == countryKey||
+                  zufall[2] == countryKey || zufall[3] == countryKey) {
+              }
+              else {
+                zufall[0] = countryKey;
+                console.log(countryKey + " zugeteilt");
+              }
+              console.log(zufall);
+              console.log(zufall.indexOf(countryKey));
+
+              food1 = preload[zufall[0]+12]
+              food2 = preload[zufall[1]+12]
+              food3 = preload[zufall[2]+12]
+              food4 = preload[zufall[3]+12]
+              foodOk = zufall.indexOf(countryKey);
+              console.log("foodOk ist pos. :" + foodOk);
+
+              food_text = "Choose food from " + country;
+              document.getElementById("container2").style.visibility = "hidden";
+              document.getElementById("container3").style.visibility = "hidden";
+              document.getElementById("container4").style.visibility = "visible";
+              document.getElementById('selectedMap4').src = selectedMap;
+              document.getElementById('food1').src = food1;
+              document.getElementById('food2').src = food2;
+              document.getElementById('food3').src = food3;
+              document.getElementById('food4').src = food4;
+
+              document.getElementById("food_text").innerHTML = food_text;
+              console.log(selectedMap);
+              return
+            }
       }
 
-      function checkFood(foodKey) {
-
-        if (foodKey == 2) {
-          console.log ("2 ist falsch:");
-          alert("Wrong food!");
-
+      function checkFood(foodKey) { // container4
+        if (foodKey == 1 && foodOk == "0") {
+          chooseSpecial();
           }
-          if (foodKey == 3) {
-            console.log ("3 ist falsch:");
-            alert("Wrong food!");
-
+          else if (foodKey == 2 && foodOk == "1") {
+            chooseSpecial();
             }
-          if (foodKey == 4) {
-            console.log ("4 ist falsch:");
-            alert("Wrong food!");
-
+          else if (foodKey == 3 && foodOk == "2") {
+            chooseSpecial();
             }
-          if (foodKey == 1) {
-            console.log ("1 ist richtig:");
-            special_text = "Choose special from " + country2;
+          else if (foodKey == 4 && foodOk == "3") {
+            chooseSpecial();
+            }
+            else {
+              alert("Wrong food!!!!");
+            }
+
+            function chooseSpecial()  {
+              // flag auswählen
+              // 4 Zufallszahlen aus 6 in Array schreiben
+              var enthalten = {};
+              var zufall = [];
+              var anzahl = 4;
+              while(anzahl){
+                var rnd = Math.floor((Math.random() * 6) + 1);
+                if(!enthalten[rnd]){
+                  // nicht enthalten
+                  enthalten[rnd] = true;
+                  anzahl--;
+                  zufall.push(rnd);
+                }
+              }
+
+              // check ob selectedFlag (countryKey) vorhanden ist
+              // sonst an flag1 zuteilen
+              if (zufall[0] == countryKey || zufall[1] == countryKey||
+                  zufall[2] == countryKey || zufall[3] == countryKey) {
+              }
+              else {
+                zufall[0] = countryKey;
+                console.log(countryKey + " zugeteilt");
+              }
+              console.log(zufall);
+              console.log(zufall.indexOf(countryKey));
+
+              special1 = preload[zufall[0]+18]
+              special2 = preload[zufall[1]+18]
+              special3 = preload[zufall[2]+18]
+              special4 = preload[zufall[3]+18]
+              specialOk = zufall.indexOf(countryKey);
+              console.log("specialOk ist pos. :" + specialOk);
+
+            special_text = "Choose special from " + country;
 
             document.getElementById("container2").style.visibility = "hidden";
             document.getElementById("container3").style.visibility = "hidden";
             document.getElementById("container4").style.visibility = "hidden";
             document.getElementById("container5").style.visibility = "visible";
+            document.getElementById('selectedMap5').src = selectedMap;
+            document.getElementById('special1').src = special1;
+            document.getElementById('special2').src = special2;
+            document.getElementById('special3').src = special3;
+            document.getElementById('special4').src = special4;
 
             document.getElementById("special_text").innerHTML = special_text;
             }
-
       }
 
       function checkSpecial(specialKey) {
