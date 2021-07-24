@@ -66,11 +66,14 @@
       <h2 id="finish" class="finish"> Finish </h2>
       <h4 id="finish_text" class="finish_text"> container 6 </h4>
       <img id="end1" class="end1" src="media/057_special_italy.png" alt="end1">
-      <img id="end2" class="end2"  alt="Punkte">
-      <img id="end3" class="end3" src="media/057_Flag_of_Italy.svg"  alt="end3">
-      <img id="end4" class="end4" src="media/057_food_italy.png"  alt="end4">
-      <img id="selectedMap6" class="selectedMap" onclick="nextCountry('1');" src="media/057_map_italy.png" alt="selectedMap">
-    </div>
+      <div id="counter" class="counter">
+        <p id="points"> Points: 900</p>
+        <p id="faults"> Faults: 4</p>
+      </div>
+        <img id="end3" class="end3" src="media/057_Flag_of_Italy.svg"  alt="end3">
+        <img id="end4" class="end4" src="media/057_food_italy.png"  alt="end4">
+        <img id="selectedMap6" class="selectedMap" onclick="nextCountry('1');" src="media/057_map_italy.png" alt="selectedMap">
+      </div>
 
     <div id="container7" class="container7">
       <h2 class="gallery">Maps</h2>
@@ -198,6 +201,7 @@
         var country5 = "Brazil";
         var country6 = "India";
         var countryKey;
+        var countryCount = 0;
         var zufZahl1; // 1 - 2
         var zufZahl2; // 1 - 6
         var map1, map2;
@@ -212,6 +216,8 @@
         var foodOk;
         var special1, special2, special3,special4;
         var specialOk;
+        var points = 0;
+        var faults = 0;
 
       function chooseCountry(key) { // container1
         zufZahl1 = Math.floor( Math.random() * 2 + 1 );
@@ -355,11 +361,14 @@
           }
           else {
             alert("Oh no, it's not map from " + country + "!");
+            faults = faults + 1;
+            points = points - 10;
           }
 
           function chooseFlag()  {
             // flag auswählen
             // 4 Zufallszahlen aus 6 in Array schreiben
+            points = points + 100;
             var enthalten = {};
             var zufall = [];
             var anzahl = 4;
@@ -423,11 +432,14 @@
             }
             else {
               alert("Oh no, it's not flag from " + country + "!");
+              faults = faults + 1;
+              points = points - 10;
             }
 
             function chooseFood()  {
               // food auswählen
               // 4 Zufallszahlen aus 6 in Array schreiben
+              points = points + 100;
               var enthalten = {};
               var zufall = [];
               var anzahl = 4;
@@ -440,6 +452,7 @@
                   zufall.push(rnd);
                 }
               }
+
 
               // check ob selectedFood (countryKey) vorhanden ist
               // sonst an food1 zuteilen
@@ -490,11 +503,14 @@
             }
             else {
             alert("Oh no, it's not food from " + country + "!");
+            faults = faults + 1;
+            points = points - 10;
             }
 
             function chooseSpecial()  {
               // special auswählen
               // 4 Zufallszahlen aus 6 in Array schreiben
+              points = points + 100;
               var enthalten = {};
               var zufall = [];
               var anzahl = 4;
@@ -557,37 +573,62 @@
             }
             else {
               alert("Oh no, it's nothig special from " + country + "!");
+              faults = faults + 1;
+              points = points - 10;
             }
 
             function chooseEnd()  {
-            finish = "Good job!";
-            finish_text = "Click map for next country";
+              points = points + 100;
+              finish = "Good job!";
+              finish_text = "Click map for next country";
 
-            document.getElementById("container2").style.visibility = "hidden";
-            document.getElementById("container3").style.visibility = "hidden";
-            document.getElementById("container4").style.visibility = "hidden";
-            document.getElementById("container5").style.visibility = "hidden";
-            document.getElementById("container6").style.visibility = "visible";
-            document.getElementById('selectedMap6').src = selectedMap;
-            document.getElementById('end1').src = selectedSpecial;
-            document.getElementById('end2').src = ""; // Punktanzeige
-            document.getElementById('end3').src = selectedFlag;
-            document.getElementById('end4').src = selectedFood;
-            document.getElementById("finish").innerHTML = finish;
-            document.getElementById("finish_text").innerHTML = finish_text;
-          }
+              document.getElementById("container2").style.visibility = "hidden";
+              document.getElementById("container3").style.visibility = "hidden";
+              document.getElementById("container4").style.visibility = "hidden";
+              document.getElementById("container5").style.visibility = "hidden";
+              document.getElementById("container6").style.visibility = "visible";
+              document.getElementById('selectedMap6').src = selectedMap;
+              document.getElementById('end1').src = selectedSpecial;
+              document.getElementById('points').innerHTML = "Points: " + points;
+              document.getElementById('faults').innerHTML = "Faults: " + faults;
+              document.getElementById('end3').src = selectedFlag;
+              document.getElementById('end4').src = selectedFood;
+              document.getElementById("finish").innerHTML = finish;
+              document.getElementById("finish_text").innerHTML = finish_text;
+            }
+
       }
 
       function nextCountry()  {
-        console.log("nextCountry");
-        document.getElementById("container1").style.visibility = "visible";
-        document.getElementById("container2").style.visibility = "hidden";
-        document.getElementById("container3").style.visibility = "hidden";
-        document.getElementById("container4").style.visibility = "hidden";
-        document.getElementById("container5").style.visibility = "hidden";
-        document.getElementById("container6").style.visibility = "hidden";
+        //console.log("nextCountry");
+        // Anzahl Countries, bei 6 click auf Map
+        // Endstand und reload anzeigen
+        countryCount = countryCount +1;
+        if (countryCount == 6) {
+          schluss();
+        }
+        else {
+          document.getElementById("container1").style.visibility = "visible";
+          document.getElementById("container2").style.visibility = "hidden";
+          document.getElementById("container3").style.visibility = "hidden";
+          document.getElementById("container4").style.visibility = "hidden";
+          document.getElementById("container5").style.visibility = "hidden";
+          document.getElementById("container6").style.visibility = "hidden";
+        }
 
+        function schluss ()  {
+        // console.log("Ende");
+          finish_text = "Game is over";
+          document.getElementById("finish").innerHTML = finish;
+          document.getElementById("finish_text").innerHTML = finish_text;
+          document.getElementById('reStart').style.visibility = "visible";
+          document.getElementById('counter').style.visibility = "visible";
 
+          document.getElementById('end1').style.visibility = "hidden";
+          document.getElementById('end3').style.visibility = "hidden";
+          document.getElementById('end4').style.visibility = "hidden";
+          document.getElementById('selectedMap6').style.visibility = "hidden";
+        }
       }
     </script>
   </body>
